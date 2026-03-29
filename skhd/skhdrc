@@ -1,10 +1,11 @@
 # skhd configuration migrated from AeroSpace
 
 # Focus windows (alt + ctrl + hjkl) - stay in current space
-alt + ctrl - h : yabai -m window --focus west
-alt + ctrl - j : yabai -m window --focus south
-alt + ctrl - k : yabai -m window --focus north
-alt + ctrl - l : yabai -m window --focus east
+# These commands include wrap-around logic to move to next monitor when no window exists in that direction
+alt + ctrl - h : yabai -m window --focus west || yabai -m display --focus prev
+alt + ctrl - j : yabai -m window --focus south || yabai -m display --focus next
+alt + ctrl - k : yabai -m window --focus north || yabai -m display --focus prev
+alt + ctrl - l : yabai -m window --focus east || yabai -m display --focus next
 
 # Explicit focus rescue for the current space (alt + ctrl + space)
 # Use this when macOS/yabai leaves focus on the desktop after closing/moving windows.
