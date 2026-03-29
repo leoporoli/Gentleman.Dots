@@ -273,6 +273,7 @@ home-manager switch --flake .#gentleman-linux
 ### Linux Alternatives
 
 For window management on Linux, consider:
+
 - **i3/Sway** - Popular tiling window managers
 - **Hyprland** - Modern Wayland compositor
 - **bspwm** - Scriptable tiling window manager
@@ -414,11 +415,24 @@ The configuration includes 50+ GLSL shaders for visual effects:
 | **Effects** | `bloom.glsl`, `glitchy.glsl`, `underwater.glsl` |
 
 To enable a shader, edit `~/.config/ghostty/config` and add:
+
 ```
 custom-shader = ~/.config/ghostty/shaders/cursor_smear_gentleman.glsl
 ```
 
 ### 5. Window Management Options
+
+#### Custom LEO configurations before installing Yabai
+
+I followed this tutorial to use some MacOS shortcuts to switch between spaces without changing the SIP configurations (which are needed for the `alt + 1-9` skhd commands)
+
+- https://www.youtube.com/watch?v=k94qImbFKWE
+
+| Shortcut | Action |
+| -------- | ------ |
+| `ctrl + 1-8` | Switch to space |
+| `ctrl + left/right` | Switch between spaces |
+| `ctrl + up` | Open/Close mission control |
 
 #### Option A: Yabai + Skhd (Recommended)
 
@@ -486,11 +500,13 @@ home-manager switch --flake .#gentleman
 **Alternative: Specific system configurations:**
 
 - **Apple Silicon Macs (M1/M2/M3/M4)**:
+
   ```bash
   home-manager switch --flake .#gentleman-macos-arm
   ```
 
 - **Intel Macs**:
+
   ```bash
   home-manager switch --flake .#gentleman-macos-intel
   ```
@@ -651,6 +667,7 @@ home-manager switch --flake .#gentleman
 Some configurations are commented out by default. To enable them:
 
 1. **Zellij Terminal Workspace:**
+
    ```bash
    # Edit flake.nix and uncomment the Zellij line
    sed -i '' 's|# ./zellij.nix|./zellij.nix|' flake.nix
@@ -658,7 +675,7 @@ Some configurations are commented out by default. To enable them:
    # Re-run the installation
    nix run github:nix-community/home-manager -- switch --flake .#gentleman-macos-arm -b backup
    ```
-   
+
    Features:
    - Modern terminal multiplexer alternative to tmux
    - Vim-like keybindings with custom themes
@@ -669,6 +686,7 @@ Some configurations are commented out by default. To enable them:
    After enabling Zellij, you need to update shell configurations to use Zellij instead of tmux:
 
    **Fish Shell (`~/.config/fish/config.fish`):**
+
    ```fish
    # Change line ~31 from:
    if not set -q TMUX; and not set -q ZED_TERMINAL
@@ -680,6 +698,7 @@ Some configurations are commented out by default. To enable them:
    ```
 
    **Zsh Shell (`~/.zshrc`):**
+
    ```bash
    # Change lines ~100-102 from:
    WM_VAR="/$TMUX"
@@ -691,6 +710,7 @@ Some configurations are commented out by default. To enable them:
    ```
 
    **Nushell (`~/.config/nushell/config.nu`):**
+
    ```nu
    # Change lines ~1015-1016 from:
    let MULTIPLEXER = "tmux"
@@ -702,6 +722,7 @@ Some configurations are commented out by default. To enable them:
    ```
 
 2. **Gemini CLI Integration:**
+
    ```bash
    # Edit flake.nix and add Gemini module
    # Add './gemini.nix' to the modules list in flake.nix
@@ -709,7 +730,7 @@ Some configurations are commented out by default. To enable them:
    # Re-run the installation
    nix run github:nix-community/home-manager -- switch --flake .#gentleman-macos-arm -b backup
    ```
-   
+
    Features:
    - Google's AI assistant CLI tool
    - Integrated via Bun package manager
@@ -831,7 +852,7 @@ This configuration includes support for the following AI tools:
 - **CopilotChat.nvim** - GitHub Copilot chat interface
 - **OpenCode.nvim** - OpenCode AI integration
 - **CodeCompanion.nvim** - Multi-AI provider support
-- **Claude Code.nvim** - Claude AI integration *(enabled by default)*
+- **Claude Code.nvim** - Claude AI integration _(enabled by default)_
 - **Gemini.nvim** - Google Gemini integration
 
 ### How to Switch AI Plugins
@@ -839,11 +860,13 @@ This configuration includes support for the following AI tools:
 **Claude Code is already enabled by default.** To switch to a different AI assistant:
 
 1. **Navigate to the disabled plugins file:**
+
    ```bash
    nvim ~/.config/nvim/lua/plugins/disabled.lua
    ```
 
 2. **Disable Claude Code** by changing `enabled = true` to `enabled = false`:
+
    ```lua
    {
      "greggh/claude-code.nvim",
@@ -903,6 +926,7 @@ The safest way to use OpenCode is with an Anthropic API key:
 ```
 
 Then set your API key:
+
 ```bash
 export ANTHROPIC_API_KEY="your-api-key-here"
 ```
@@ -934,7 +958,8 @@ Recommended usage flow:
 4. Switch back to `gentleman` (Tab) for day-to-day coding.
 
 Artifact store recommendation:
-- Use `artifact_store.mode: engram` (recommended) - https://github.com/gentleman-programming/engram
+
+- Use `artifact_store.mode: engram` (recommended) - <https://github.com/gentleman-programming/engram>
 - `auto` fallback order: user-requested files -> engram -> existing openspec -> none
 
 ---
@@ -945,6 +970,7 @@ Artifact store recommendation:
 There's a community plugin (`opencode-anthropic-auth`) that enables OAuth authentication with Claude Max/Pro subscriptions. **However, this violates Anthropic's Terms of Service and can result in account suspension.**
 
 **What the plugin does:**
+
 - Spoofs the Claude Code CLI's OAuth client ID
 - Fakes the user-agent to impersonate Claude Code
 - Replaces "OpenCode" strings to evade server detection
@@ -953,6 +979,7 @@ There's a community plugin (`opencode-anthropic-auth`) that enables OAuth authen
 > "Do Not Abuse our Platform: Intentionally bypass capabilities, restrictions, or guardrails established within our products without prior authorization from Anthropic"
 
 **Risks:**
+
 - 🚫 **Account ban** - Your Claude account can be suspended
 - ⚠️ You can request an unban via X/Twitter, but it's not guaranteed
 - 🔄 Anthropic could block this workaround at any time
