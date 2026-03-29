@@ -2,6 +2,38 @@
 
 Tiling window manager setup for macOS with custom keybindings and a beautiful status bar.
 
+## ⚠️ IMPORTANT: Display Separate Spaces Setting
+
+Yabai requires a specific Mission Control setting that is typically GLOBAL and requires manual configuration:
+
+### The Problem
+
+Yabai will fail to start with this error:
+
+```bash
+yabai: 'display has separate spaces' is disabled! abort..
+```
+
+### The Solution
+
+You must manually enable "Displays have separate spaces" in System Settings:
+
+1. Open **System Settings** → **Desktop & Dock**
+2. Look for the toggle **"Displays have separate spaces"**
+3. **Enable it** (turn it ON)
+   - When enabled = spaces are SEPARATE per display (what Yabai needs)
+   - When disabled = spaces SPAN all displays (what Yabai rejects)
+
+4. Restart your Mac for the change to take full effect
+
+Alternatively, you can try:
+
+```bash
+# This may or may not work depending on your macOS version
+/usr/bin/defaults write com.apple.spaces.plist spans-displays -bool false
+killall Dock
+```
+
 ## Prerequisites
 
 ### Update Command Line Tools
