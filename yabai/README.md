@@ -37,6 +37,7 @@ killall Dock
 ## Prerequisites
 
 ### Update Command Line Tools
+
 If you encounter errors about Command Line Tools not supporting macOS 26:
 
 ```bash
@@ -104,11 +105,13 @@ cp simple-bar/settings.json "$HOME/Library/Application Support/Übersicht/simple
 Edit `$HOME/Library/Application Support/Übersicht/widgets/simple-bar/lib/styles/themes.js`:
 
 Add at the top with other imports:
+
 ```javascript
 import * as Gentleman from "./themes/gentleman";
 ```
 
 Add at the bottom of the collection object:
+
 ```javascript
   Gentleman: Gentleman.theme,
 ```
@@ -139,6 +142,7 @@ launchctl load -w ~/Library/LaunchAgents/com.simple-bar-server.plist
 ### 8. Configure macOS menu bar and Dock
 
 **Menu Bar:**
+
 1. Open **System Settings**
 2. Go to **Menu Bar** (in the left sidebar)
 3. Set **"Automatically hide and show the menu bar"** to **"Always"**
@@ -147,6 +151,7 @@ launchctl load -w ~/Library/LaunchAgents/com.simple-bar-server.plist
 This allows you to access the native macOS menu bar by moving your mouse to the top of the screen.
 
 **Dock:**
+
 1. Open **System Settings**
 2. Go to **Desktop & Dock**
 3. Enable **"Automatically hide and show the Dock"**
@@ -194,6 +199,7 @@ skhd --start-service
 ```
 
 This will:
+
 - Create launchd service files in `~/Library/LaunchAgents/`
 - Start both services immediately
 - Configure them to start automatically at login
@@ -201,32 +207,38 @@ This will:
 ## Keybindings
 
 ### Window Management
+
 - `alt+ctrl+h/j/k/l` - Focus window (left/down/up/right)
 - `alt+shift+h/j/k/l` - Move/swap window
 - `alt+shift+f` - Toggle fullscreen
 
 ### Resizing
+
 - `alt+arrow keys` - Resize windows in all directions
 - `alt+-` / `alt+=` - Resize horizontally
 
 ### Layout
+
 - `alt+r` - Rotate layout 90° (convert left/right to top/bottom)
 - `alt+x` - Mirror horizontally
 - `alt+y` - Mirror vertically
 - `alt+e` - Toggle split orientation for focused window
 
 ### Workspaces/Spaces
+
 - `alt+1-7` - Switch to workspace
 - `alt+shift+1-7` - Move window to workspace and follow
 - `alt+tab` - Switch to recent workspace
 
 ### Special
+
 - `ctrl+alt+cmd+r` - Reload configs
 - `ctrl+alt+cmd+b` - Balance layout
 - `ctrl+alt+cmd+f` - Toggle floating
 - `ctrl+alt+cmd+h/j/k/l` - Warp windows
 
 ## Space Labels
+
 1. social
 2. work
 3. development
