@@ -1,8 +1,8 @@
 # skhd configuration migrated from AeroSpace
 
 # Change focus between external displays (left and right)
-alt + ctrl - , : yabai -m display --focus west
-alt + ctrl - . : yabai -m display --focus east
+alt + ctrl - s : yabai -m display --focus west
+alt + ctrl - g : yabai -m display --focus east
 
 # Focus windows (alt + ctrl + hjkl) - stay in current space
 # These commands include wrap-around logic to move to next monitor when no window exists in that direction
