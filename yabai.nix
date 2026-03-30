@@ -6,6 +6,15 @@
     # This is CRITICAL for yabai/sketchybar to work correctly with numbered spaces
     echo "Configuring Mission Control settings..."
     /usr/bin/defaults write com.apple.dock mru-spaces -bool false
+
+    # ─── DISPLAY SEPARATE SPACES (REQUIRED for Yabai) ───
+    # Yabai requires "display has separate spaces" to be ENABLED (spans-displays = false)
+    # This means spaces do NOT span all displays - each display has its own spaces
+    # Note: This setting is typically a GLOBAL preference that requires manual configuration
+    # in System Settings > Desktop & Dock > "Displays have separate spaces"
+    # The command below attempts to set it, but macOS may require manual intervention
+    /usr/bin/defaults write com.apple.spaces.plist spans-displays -bool false 2>/dev/null || true
+
     killall Dock 2>/dev/null || true
 
     echo "Copying Yabai configuration..."
