@@ -31,8 +31,8 @@
 
     # ─── Yabai sudoers setup for scripting addition ───
     # Required for space switching (yabai --load-sa needs passwordless sudo)
-    YABAI_BIN="${lib.getExe pkgs.yabai}"
-    YABAI_HASH="$(/usr/bin/shasum -a 256 "$YABAI_BIN" | /usr/bin/awk '{print $1}')"
+    YABAI_BIN="$(command -v yabai)"
+    YABAI_HASH="$(shasum -a 256 "$YABAI_BIN" | awk '{print $1}')"
     EXPECTED_ENTRY="$USER ALL=(root) NOPASSWD: sha256:$YABAI_HASH $YABAI_BIN --load-sa"
 
     NEEDS_UPDATE=false

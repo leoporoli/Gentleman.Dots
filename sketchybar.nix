@@ -8,6 +8,7 @@
     
     # Create config directory
     SKETCHYBAR_DIR="$HOME/.config/sketchybar"
+    rm -rf "$SKETCHYBAR_DIR"
     mkdir -p "$SKETCHYBAR_DIR/plugins"
     
     # Copy main config
