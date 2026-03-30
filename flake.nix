@@ -100,6 +100,9 @@
                 unstablePkgs.neovim
                 tree-sitter
 
+                # ─── External Services CLIs ───
+                supabase-cli
+
                 # ─── Compilers and system utilities ───
                 gcc
                 fd
