@@ -1,11 +1,24 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 
 {
   # Instalar TPM (Tmux Plugin Manager)
-  home.activation.installTpm = ''
+  home.activation.installTpm = lib.hm.dag.entryAfter ["writeBoundary"] ''
+    # Install TPM if not present
+    echo "Installing TPM..."
     if [ ! -d ~/.tmux/plugins/tpm ]; then
-      ${pkgs.git}/bin/git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+      mkdir -p ~/.tmux/plugins
+      git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+      echo "TPM installed successfully"
+    else
+      echo "TPM already installed"
     fi
+
+    # Ensure tmux config directory exists and is symlinked
+    TMUX_DIR="$HOME/.config/tmux"
+    rm -rf "$TMUX_DIR"
+    mkdir -p "$TMUX_DIR"
+    ln -sf ~/.local/state/nix/profiles/home-manager/home-files/.config/tmux/tmux.conf "$TMUX_DIR/tmux.conf"
+    echo "Tmux config symlinked"
   '';
 
   home.file = {
