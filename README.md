@@ -416,7 +416,7 @@ The configuration includes 50+ GLSL shaders for visual effects:
 
 To enable a shader, edit `~/.config/ghostty/config` and add:
 
-```
+```bash
 custom-shader = ~/.config/ghostty/shaders/cursor_smear_gentleman.glsl
 ```
 
@@ -426,7 +426,7 @@ custom-shader = ~/.config/ghostty/shaders/cursor_smear_gentleman.glsl
 
 I followed this tutorial to use some MacOS shortcuts to switch between spaces without changing the SIP configurations (which are needed for the `alt + 1-9` skhd commands)
 
-- https://www.youtube.com/watch?v=k94qImbFKWE
+- <https://www.youtube.com/watch?v=k94qImbFKWE>
 
 | Shortcut | Action |
 | -------- | ------ |
@@ -495,6 +495,10 @@ Once you have cloned the repository and are **inside its directory**, run the co
 
 ```bash
 home-manager switch --flake .#gentleman
+
+or 
+
+home-manager switch --flake .#gentleman -b backup (to create backup files for existing ones like the .zhrc file)
 ```
 
 **Alternative: Specific system configurations:**
