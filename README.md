@@ -425,6 +425,7 @@ custom-shader = ~/.config/ghostty/shaders/cursor_smear_gentleman.glsl
 #### Custom LEO configurations before installing Yabai
 
 I followed this tutorial to use some MacOS shortcuts to switch between spaces without changing the SIP configurations (which are needed for the `alt + 1-9` skhd commands)
+NOTE: This is ok if you only want to jump between spaces but if you want to move windows between the spaces you will forced to partially disable the SIP configurations (you can check the '/yabai/README.md' file in the 'Partially disable SIP' section to know how to do it) so if you endup partially disabling SIP you can use the alt + 1,2,3... instead of the ctrl + 1,2,3.. custom commands configured in the Window Management Options
 
 - <https://www.youtube.com/watch?v=k94qImbFKWE>
 

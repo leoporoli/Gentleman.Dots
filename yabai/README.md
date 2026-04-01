@@ -84,7 +84,7 @@ chmod +x ~/.config/yabai/move-window-to-space.sh
 chmod +x ~/.config/yabai/yabairc
 ```
 
-### 4. Install simple-bar
+### 4. Install simple-bar (it was used before sketchybar)
 
 ```bash
 # Open Übersicht once to create the widgets folder
@@ -286,3 +286,12 @@ The Gentleman theme for simple-bar matches the Ghostty terminal theme with color
 - Uses simple-bar-server for efficient widget updates via curl
 - Window tiling and management fully functional
 - macOS menu bar accessible by moving mouse to top of screen
+
+## Partially disable SIP by LEO
+
+1. Follow the instructions in [this doc](https://github.com/asmvik/yabai/wiki/Disabling-System-Integrity-Protection)
+1. You can restart the OS again after the last configuration set in that document
+1. If yabai is not workin properly you maybe have to start it again with `yabai --start-service`
+1. Then you will need to run the script to configure the load-sa `sudo yabai --load-sa`
+1. And now the commands depending on the new SIP configuration should be working, for example you can try with this `yabai -m space --focus 2`
+1. Now you can check if 'skhd' also executes the same Yabai command with the `alt + shift + 2` shortcut.
