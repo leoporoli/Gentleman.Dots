@@ -87,7 +87,7 @@
   };
 
   # Auto-install OpenCode on home-manager activation
-  home.activation.installOpenCode = lib.hm.dag.entryAfter ["linkGeneration"] ''
+  home.activation.installOpenCode = lib.hm.dag.entryAfter ["writeBoundary"] ''
     echo "🔧 Setting up OpenCode..."
 
     OPENCODE_DIR="$HOME/.opencode"
