@@ -295,3 +295,9 @@ The Gentleman theme for simple-bar matches the Ghostty terminal theme with color
 1. Then you will need to run the script to configure the load-sa `sudo yabai --load-sa`
 1. And now the commands depending on the new SIP configuration should be working, for example you can try with this `yabai -m space --focus 2`
 1. Now you can check if 'skhd' also executes the same Yabai command with the `alt + shift + 2` shortcut.
+
+## Initializating Yabai and SKHD after MacOS restart
+
+1. `sudo yabai --load-sa`
+1. `yabai --start-service` # Do not execute the `yabai --restart-service` because it starts having issues with the Accessibility access, because it's already configured but the command is still asking for this config (I think it could be related to the new process and PID creation or something similar)
+1. `skhd --start-service`
