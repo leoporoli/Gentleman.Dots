@@ -54,9 +54,9 @@
             ./nvim.nix  # Neovim configuration
             ./zsh.nix  # Zsh configuration
             ./oil-scripts.nix  # Oil.nvim scripts configuration
-            ./opencode.nix  # OpenCode AI assistant configuration
-            ./claude.nix  # Claude Code CLI configuration
-            ./engram.nix  # Engram memory layer for AI agents
+            # ./opencode.nix  # OpenCode AI assistant configuration
+            # ./claude.nix  # Claude Code CLI configuration
+            # ./engram.nix  # Engram memory layer for AI agents
             ./yabai.nix  # Yabai window manager configuration
             ./skhd.nix  # Skhd hotkey daemon configuration
             # ./simple-bar.nix  # simple-bar for Übersicht (disabled - using sketchybar)
@@ -71,48 +71,48 @@
               # Base packages that should be available everywhere
               home.packages = with pkgs; [
                 # ─── Terminals and utilities ───
-                zellij
-                tmux
-                fish
-                zsh
-                nushell
+                # zellij                 # terminal multiplexer (tmux alternative)
+                tmux                     # terminal multiplexer
+                fish                     # Friendly Interactive Shell
+                zsh                      # Z shell
+                # nushell                # modern data-oriented shell
 
                 # ─── Window management (macOS) ───
-                yabai
-                skhd
-                unstablePkgs.sketchybar  # Use unstable for latest version
+                # yabai                  # macOS window manager (tiling)
+                # skhd                   # hotkey daemon for macOS
+                # unstablePkgs.sketchybar  # Use unstable for latest version
 
                 # ─── Development tools ───
-                volta
-                carapace
-                zoxide
-                atuin
-                jq
-                bash
-                starship
-                fzf
-                nodejs
-                bun
-                cargo
-                go
-                nil
-                unstablePkgs.nixd
-                unstablePkgs.neovim
-                tree-sitter
+                # volta                  # JS toolchain manager (Node versions)
+                carapace                 # shell completions generator
+                zoxide                   # smarter cd with frecency
+                atuin                    # advanced shell history (search/sync)
+                jq                       # JSON processor
+                # bash                     # GNU Bourne Again SHell
+                starship                 # customizable shell prompt (shows git branch, etc.)
+                fzf                      # fuzzy finder for terminal
+                # nodejs                 # JavaScript runtime
+                # bun                    # fast JS/TS runtime & bundler
+                # cargo                  # Rust package manager
+                # go                     # Go programming language
+                # nil                    # Nix language server (LSP for Neovim)
+                # unstablePkgs.nixd      # Nix language server (LSP alternative)
+                # unstablePkgs.neovim    # Neovim editor
+                # tree-sitter            # syntax parser for highlighting in Neovim
 
                 # ─── External Services CLIs ───
-                supabase-cli
+                # supabase-cli
 
                 # ─── Compilers and system utilities ───
-                gcc
-                fd
-                ripgrep
-                coreutils
-                unzip
-                bat
-                lazygit
-                yazi
-                television
+                # gcc                    # GNU C/C++ compiler
+                fd                       # fast find alternative
+                ripgrep                  # ultra-fast text searcher (rg)
+                # coreutils              # GNU basic utils (ls, cat, etc.)
+                # unzip                  # extract .zip files
+                bat                      # cat clone with syntax highlighting
+                lazygit                  # TUI for git
+                yazi                     # terminal file manager (TUI)
+                television               # fast fuzzy finder TUI (fzf alternative)
 
                 # ─── Nerd Fonts ───
                 nerd-fonts.iosevka-term
