@@ -1,15 +1,15 @@
 # skhd configuration migrated from AeroSpace
 
+# Change focus between external displays (left and right)
+alt + ctrl - , : yabai -m display --focus west
+alt + ctrl - . : yabai -m display --focus east
+
 # Focus windows (alt + ctrl + hjkl) - stay in current space
 # These commands include wrap-around logic to move to next monitor when no window exists in that direction
 alt + ctrl - h : yabai -m window --focus west || yabai -m display --focus prev
 alt + ctrl - j : yabai -m window --focus south || yabai -m display --focus next
 alt + ctrl - k : yabai -m window --focus north || yabai -m display --focus prev
 alt + ctrl - l : yabai -m window --focus east || yabai -m display --focus next
-
-# Explicit focus rescue for the current space (alt + ctrl + space)
-# Use this when macOS/yabai leaves focus on the desktop after closing/moving windows.
-alt + ctrl - space : ~/.config/yabai/focus-current-space-window.sh
 
 # Move windows (alt + shift + hjkl)
 alt + shift - h : yabai -m window --swap west
